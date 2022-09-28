@@ -1,0 +1,14 @@
+#answer:1
+doc=nlp(text)
+urls=[]
+for token in doc:
+  if token.like_url:
+    urls.append(token.text)
+urls
+
+#answer:2
+transactions = "Tony gave two $ to Peter, Bruce gave 500 € to Steve"
+doc=nlp(transactions)
+for token in doc:
+  if token.is_currency:
+    print(doc[token.i-1],token)
